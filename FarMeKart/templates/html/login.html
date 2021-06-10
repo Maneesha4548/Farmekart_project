@@ -1,36 +1,62 @@
+
 {% extends 'html/header.html' %}
 {% block title %}Login{% endblock %}
 {% block content %}
-<div class="container">
-	<div class="row">
-		<div class="card bg-warning col-md mt-4 shadow-lg mx-1">
-	<h3 class="mx-auto mt-3">Social Networks</h3>
-	<a href="" class="btn btn-dark mt-2">Google</a>
-	<a href="" class="btn btn-dark mt-2">Github</a>
+{% if messages %}
+  {% for j in messages %}
+  <div class="alert alert-{{j.tags}} alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  {{j}}
 </div>
-	<div class="card col-md mt-4 shadow-lg mx-1 bg-dark text-light">
-		<h3 class="mx-auto mt-3">Login</h3>
-		<div class="card-body">
-		<form method="post">
-			{% csrf_token %}
-			<input type="text" name="username" placeholder="Enter Username" class="form-control my-2">
-			<input type="password" name="password" placeholder="Enter Password" class="form-control my-2">
-			<div class="row">
-				<div class="col">
-					 <a href="{% url 'rg' %}" class="btn btn-primary col-sm my-2">New User</a>
-				</div>
-				<div class="col">
-					<input type="submit" value="Login" class="form-control my-2 col-sm btn btn-success">
-				</div>
+  {% endfor %}
+{% endif %}
+<!-- Background image -->
+<div class="bg-image" 
+     style="background-image: url('https://thumbs.dreamstime.com/b/empty-old-wooden-table-top-bamboo-leaves-frame-blurred-greenery-background-garden-copy-space-your-display-164017255.jpg');
+            height: 100%">
 
 
+<div id="login">
+        <h3 class="text-center text-white pt-5"></h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="POST">
+                            <div class="container">
+                                
+                                
 
+                            <h1 class="card-title text-center text-dark">Login</h1>
+                            {% csrf_token %}
+                            <div class="form-group">
+                               
+                                <input type="text" name="username" id="username" placeholder="Enter your Username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                               
+                                <input type="password" name="password" id="password" placeholder="Enter your Password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                
+                                <input  type="submit" name="submit" class="btn btn-info btn-md col-sm" value="submit">
+                            </div>
+                            <div class="col">
+                        <a href="{% url 'rg' %}" class="btn btn-primary ">Create  New User</a>  
+                    
+            <a href="{% url 'rt' %}" class="btn btn-danger" >Forget Password ?</a>
+<br><br><br><br><br><br></div></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 
-			</div>
-		</form>
-		<a href="{% url 'rt' %}" class="btn btn-block btn-info">Forgot Password..?</a>
-		</div>
-	</div>
-</div>
-</div>
+ <br>
+
+       
+
+ </div></div>
 {% endblock %}

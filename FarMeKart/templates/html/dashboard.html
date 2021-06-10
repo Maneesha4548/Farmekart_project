@@ -1,12 +1,20 @@
 {% extends 'html/header.html' %}
 {% block title %}dashboard{% endblock %}
 {% block content %}
-<div class="container">
-	<div class="card col-md-6 mx-auto mt-4">
-		<h3>welcome {{user.username}} 
-			
-		</h3>
+{% load static %}
 
-	</div>
-</div>
+<style>
+.aligncenter {
+    text-align: center;
+}
+</style>
+<h3 class="text-success text-center">HI {{user.username}}, WELCOME TO THE FARMEKART <svg xmlns="http://www.w3.org/2000/svg" width="26" height="28" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
+  <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
+</svg></h3>
+<p class="aligncenter">
+    <img src="{% static 'images/logo.png' %}" alt="centered image" class="rounded-circle mt-4" style="my-3 width:300px;height:400px" />
+</p>
+
+
+			 
 {% endblock %}

@@ -2,7 +2,7 @@ from django.contrib.auth.models import User,AbstractUser
 from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm
 from django import forms
 from FarMeKart.models import Vegpro
-from FarMeKart.models import UserPro,Myorders
+from FarMeKart.models import UserPro,Myorders,Orders
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -117,8 +117,13 @@ class ChpwdForm(PasswordChangeForm):
 class Vegfr(forms.ModelForm):
 	class Meta:
 		model = Vegpro
-		fields = ["item_type","item_name","quantity","market_price","price","impf"]
+		fields = ["fname","item_type","item_name","quantity","market_price","price","impf"]
 		widgets={
+		"fname":forms.TextInput(attrs={
+			"class":"form-control",
+			"placeholder":"Enter Your name",
+			
+			}),
 		"item_type":forms.Select(attrs={
 			"class":"form-control",
 			"placeholder":"Select your Item",
@@ -127,11 +132,11 @@ class Vegfr(forms.ModelForm):
 			"class":"form-control",
 			"placeholder":"Enter Item Name",
 			}),
-
+		
 		"quantity":forms.NumberInput(attrs={
 			"class":"form-control",
-			"max":"500",
-			"min":"150",
+			"placeholder":"Enter quantity",
+			
 			}),
 		"market_price":forms.NumberInput(attrs={
 			"class":"form-control",
@@ -149,7 +154,7 @@ class Vegfr(forms.ModelForm):
 class UpdVgtab(forms.ModelForm):
 	class Meta:
 		model = Vegpro
-		fields = ["item_type","item_name","quantity","market_price","price","is_stock","impf"]
+		fields = ["item_type","item_name","quantity","market_price","price","totalquantity","impf"]
 		widgets = {
 		"item_type":forms.Select(attrs={
 			"class":"form-control",
@@ -171,7 +176,7 @@ class UpdVgtab(forms.ModelForm):
 			"class":"form-control",
 			"placeholder":"Enter Your Rate",
 			}),
-		"is_stock":forms.NumberInput(attrs={
+		"totalquantity":forms.NumberInput(attrs={
 			"class":"form-control",
 			}),
 		}
@@ -179,10 +184,8 @@ class UpdVgtab(forms.ModelForm):
 class Userp(forms.ModelForm):
 	class Meta:
 		model = UserPro
-		fields=["farmers_name","item_type","item_name","quantity","price","is_status"]
-
-
-
+		fields='__all__'
+		
 class PlaceorderForm(forms.ModelForm):
 	class Meta:
 		model=User
@@ -192,3 +195,4 @@ class PlaceorderForm(forms.ModelForm):
 		"Country":forms.TextInput(attrs={"class":"form-control my-2","placeholder":"Country"}),
 		"State":forms.TextInput(attrs={"class":"form-control my-2","placeholder":"State"}),
 		}
+

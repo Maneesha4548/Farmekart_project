@@ -1,12 +1,17 @@
 {% extends 'html/header.html' %}
-{% block title %}logout{% endblock %}
+{% block title %}Home{% endblock %}
 {% block content %}
 <div class="container">
-	<div class="card col-md-6 mx-auto mt-4 bg-warning">
-		<h3 class="mx-auto p-3">logout</h3>
+	<div class="card col-md-6 mx-auto mt-4 shadow-lg">
+		<h4 class="p-3 bg-dark text-center text-white mt-3 border rounded">LOGOUT</h4>
 		<div class="card-body">
-			<h3> You have Successfully logged out Please click here to login <a href="{% url 'lgo' %}" class="form-control btn btn-secondary">Login</a></h3>
+			<h2 class="text-center text-success">Successfully Logged Out</h2>
+			<h3>You need to Login again?<a href="{% url 'lg' %}" class="form-contol btn btn-info my-2">Login</a></h3>
 		</div>
 	</div>
-</div>
+</div>		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+
 {% endblock %}
