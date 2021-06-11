@@ -10,8 +10,8 @@
      <table class="table table-striped">
      
       <tr>
-      <th>itemname</th>
-      <th>Price</th>
+      <th>Item name</th>
+      <th>Item type</th>
       <th>Ordered Date</th>
       <th>Status</th>
      
@@ -19,7 +19,7 @@
       {% for info in my %}
       <tr>
          <td>{{info.item_name}}</td>
-         <td><span class="price">Rs.{{info.price}}</span></td>
+         <td>{{info.item_type}}</td>
          <td><span class="Date">{{info.date}}</span></td>
          {% if info.is_status == 1 %}
          <td>Delivered</td>

@@ -12,19 +12,19 @@
       <tr>
       <th>item_name</th>
       <th>item_type</th>
-      <th>price</th>
+      <th>Stock</th>
       <th>Ordered date</th>
-      <th>Actions</th>
+      
      
       </tr>
       {% for info in de %}
       <tr>
          <td>{{info.item_name}}</td>
          <td>{{info.item_type}}</td>
-         <td>{{info.price}}Rs/20kgs</td>
+         <td>{{info.price}}</td>
          <td>{{info.date}}</td>
-               <td>  <a href="{% url 'deli' info.id %}" class="btn btn-info">Delivery</a></td>
-
+              <!--  <td>  <a href="{% url 'deli' info.id %}" class="btn btn-info">Delivery</a></td>
+ -->
        </tr>
        {% endfor %}
         </table>

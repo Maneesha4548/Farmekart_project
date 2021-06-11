@@ -32,7 +32,7 @@
 		</form>
 		<form method="POST" action="{% url 'quan' i.id %}">
 			{% csrf_token %}
-			<input type="submit" value="+" class="fas fa-plus-square fa-lg"></br>
+			<input type="submit" value="+" class="fas fa-plus-square fa-lg" ></br>
 		</form>
 		{{i.qunatity}}
 		<form method="POST" action="{% url 'req' i.id %}">
